@@ -1,0 +1,18 @@
+一、servlet 的理解
+	1、Servlet的创建
+			一个类，继承HTTPServlet即可，HTTPServlet中有函数service(...,...),里面可以有两种参数，一种参数是ServletRequest和ServletResponse,
+		还有一种是HTTPServletRequest和HTTPServletResponse.
+	2、Servlet生命周期
+			构造函数 ---->init()----->service(servletrequest的参数)----->service(httpservletrequest类型的参数)----->destroy()
+		当某个servlet第一次被调用的时候会执行一次init()函数，然后在内存中就会有一个servlet的实例，然后当有请求过来的时候由service函数将请求交给相应的doxxx()函数。
+		这个实例一般情况下只有服务器停止的时候才会被destroy。
+			关键字：单实例、多线程
+	3、作用
+			mvc中的c，前台将数据提交给servlet，servlet经过处理再讲数据呈现给相应的view。
+	4、RequestDispatch  转发接口
+			在后台实现页面的跳转，比如从登陆页面获取登陆信息，然后在后台控制将数据显示到另外的页面上。接口里有两种转发函数forword和include。
+		forword：直接从一个页面跳转到例外一个页面，不包括本次servlet中处理所得的结果
+		include：从一个页面跳转到另外一个页面，但是其中可以包括本次servlet的处理结果
+	5、重定向和转发的不同
+			简单俩说，重定向就是重新产生一个请求并将这个请求交给相应的后台去处理，而转发就是简单讲请求转给另外一个处理的函数或者类。重定向会产生两个请求而转发只产生一个请求。
+		
